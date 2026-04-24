@@ -31,9 +31,13 @@ var facing_right: bool = true
 @onready var animation_player = $AnimationPlayer
 
 func _ready() -> void:
-	# Inicializar animaciones si existen
+	# Cargar animaciones desde sprites
 	if animation_player:
-		animation_player.play("idle")
+		AnimationLoader.load_all_animations(animation_player)
+		if animation_player.has_animation("idle"):
+			animation_player.play("idle")
+		else:
+			push_warning("Animación 'idle' no encontrada. Asegúrate de tener sprites en res://sprites/gaucho/")
 
 func _physics_process(delta: float) -> void:
 	# Manejar entrada
