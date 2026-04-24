@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8o0yybgmdfhdd"]
+
+[ext_resource type="Script" path="res://scripts/depth_sorter.gd" id="1_ytydj"]
+[ext_resource type="PackedScene" uid="uid://c6s4j5y0tul3t" path="res://scenes/player/player.tscn" id="2_gy14r"]
+
+[sub_resource type="TileSet" id="TileSet_5nzlb"]
+
+[sub_resource type="CanvasLayer" id="CanvasLayer_tq0x3"]
+
+[node name="Main" type="Node2D"]
+
+[node name="DepthSorter" type="Node" parent="."]
+script = ExtResource("1_ytydj")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Background" type="CanvasLayer" parent="Level"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Level/Background"]
+anchors_rect_scale = true
+offset_left = -2000.0
+offset_top = -2000.0
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.2, 0.15, 0.1, 1)
+
+[node name="TileMap" type="TileMap" parent="Level"]
+tile_set = SubResource("TileSet_5nzlb")
+
+[node name="Ground" type="StaticBody2D" parent="Level"]
+position = Vector2(0, 1200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Ground"]
+shape = RectangleShape2D
+shape.extents = Vector2(2000, 50)
+
+[node name="GroundSprite" type="Sprite2D" parent="Level/Ground"]
+modulate = Color(0.4, 0.35, 0.3, 1)
+self_modulate = Color(1, 1, 1, 1)
+position = Vector2(0, 0)
+scale = Vector2(2000, 50)
+texture = null
+
+[node name="Player" parent="." instance=ExtResource("2_gy14r")]
+position = Vector2(720, 600)
