@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqafqlmm0yv95y"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_ux1bz"]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_ux1bz")
+add_to_group("enemies")
+add_to_group("depth_sortable")
+enemy_name = "Enemigo Genérico"
+health = 20
+speed = 100.0
+patrol_range = 200.0
+detection_range = 300.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = null
+centered = true
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = RectangleShape2D
+shape.resource_local_to_scene = true
+shape.extents = Vector2(32, 48)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = CircleShape2D
+shape.resource_local_to_scene = true
+shape.radius = 300.0

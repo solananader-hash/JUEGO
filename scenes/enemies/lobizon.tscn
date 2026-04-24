@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx0kw26hpcb1k"]
+
+[ext_resource type="Script" path="res://scripts/lobizón.gd" id="1_o7m9g"]
+
+[node name="Lobizon" type="CharacterBody2D"]
+script = ExtResource("1_o7m9g")
+add_to_group("enemies")
+add_to_group("depth_sortable")
+enemy_name = "Lobizón"
+health = 50
+speed = 180.0
+patrol_range = 300.0
+detection_range = 400.0
+jump_force = -300.0
+jump_cooldown = 2.0
+rage_threshold = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = null
+centered = true
+offset = Vector2(0, -20)
+scale = Vector2(1.2, 1.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = RectangleShape2D
+shape.resource_local_to_scene = true
+shape.extents = Vector2(40, 50)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = CircleShape2D
+shape.resource_local_to_scene = true
+shape.radius = 400.0

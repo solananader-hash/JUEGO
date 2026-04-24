@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8o0yybgmdfhdd"]
+[gd_scene load_steps=5 format=3 uid="uid://b8o0yybgmdfhdd"]
 
 [ext_resource type="Script" path="res://scripts/depth_sorter.gd" id="1_ytydj"]
 [ext_resource type="PackedScene" uid="uid://c6s4j5y0tul3t" path="res://scenes/player/player.tscn" id="2_gy14r"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_1a2k8"]
 
 [sub_resource type="TileSet" id="TileSet_5nzlb"]
 
-[sub_resource type="CanvasLayer" id="CanvasLayer_tq0x3"]
-
 [node name="Main" type="Node2D"]
+script = ExtResource("3_1a2k8")
 
 [node name="DepthSorter" type="Node" parent="."]
 script = ExtResource("1_ytydj")
