@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/zona_agua.gd" id="1_zona"]
+
+[node name="ZonaAgua" type="Node2D"]
+y_sort_enabled = false
+script = ExtResource("1_zona")
